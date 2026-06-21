@@ -1,5 +1,5 @@
 resource "aws_db_subnet_group" "main" {
-  name = "Chewbacca-DB-SubnetGroup"
+  name = "chewbacca-db-subnetgroup"
   subnet_ids = var.db_subnet_ids
   description = "Subnet Group para la DB en subredes privadas"
   tags = {
@@ -8,7 +8,7 @@ resource "aws_db_subnet_group" "main" {
 }
 
 resource "aws_db_instance" "main" {
-  identifier = "Chewbacca-DB"
+  identifier = "chewbacca-db"
   engine = "mysql"
   engine_version = "5.7"
   instance_class = var.db_instance_class
