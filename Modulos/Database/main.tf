@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "main" {
 resource "aws_db_instance" "main" {
   identifier = "Chewbacca-DB"
   engine = "mysql"
-  engine_version = "8.0"
+  engine_version = "5.7"
   instance_class = var.db_instance_class
   allocated_storage = 20
   storage_type = "gp2"
