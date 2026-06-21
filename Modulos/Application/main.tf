@@ -1,6 +1,10 @@
+data "aws_ssm_parameter" "amazon_linux_2" {
+  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+}
+
 resource "aws_launch_template" "app" {
   name_prefix = "Chewbacca-App"
-  image_id = var.ami_id
+  image_id = data.aws_ssm_parameter.amazon_linux_2.value
   instance_type = var.instance_type
   vpc_security_group_ids = [
     var.app_sg_id

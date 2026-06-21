@@ -4,17 +4,12 @@ variable "app_subnet_ids" {
 }
 
 variable "app_sg_id" {
-  description = "ID del SG asociado a las EC2."
+  description = "ID del SG asociado a los servidores de la aplicación."
   type        = string
 }
 
 variable "target_group_arn" {
   description = "ARN del TG donde se registrarán las EC2 del ASG."
-  type        = string
-}
-
-variable "ami_id" {
-  description = "ID de la AMI que utilizarán las instancias EC2."
   type        = string
 }
 
