@@ -4,7 +4,7 @@ Se presenta el diseño de la mejora para la actual infraestructura cumpliendo lo
 
 ## Contenido
 
-En el directorio raíz se encuentran todos los archivos Terraform además de la carpeta con los módulos necesarios para poder cumplir con el despliegue de la infraestructura.
+En el directorio raíz se encuentran todos los archivos Terraform además de la carpeta con los módulos necesarios para poder cumplir con el despliegue de la infraestructura y la carpeta que contiene todos los archivos de la aplicación a desplegar.
 
 ## Requisitos generales
 
@@ -78,6 +78,30 @@ Y , para acceder al repositorio recientemente clonado, se utiliza el comando:
 ```bash
 $ cd Chewbacca
 ```
+
+## Modo de uso
+
+Antes de hacer el deployment de la infraestructura por Terraform, se debe inicializar el proyecto de Terraform con el comando:
+
+```bash
+$ terraform init
+```
+Para verificar que toda la infraestructura propuesta está correcta, se corre el comando:
+
+```bash
+$ terraform validate
+```
+El resultado del comando anterior debería ser "Success! The configuration is valid.". Una vez verificada la infraestructura, se calcula qué cambios realizará Terraform con el comando:
+
+```bash
+$ terraform plan
+```
+Por último, Terraform creará los recursos necesarios para que la infraestructura quede igual a la definida en el código con el comando:
+
+```bash
+$ terraform apply
+```
+Es un proceso que va a llevar unos cuantos minutos debido a la cantidad de recursos que se están creando, siendo la que más demore la base de datos. Terminado el proceso, se recibirá un mensaje que va a decir "Resources: 29 added, 0 changed, 0 destroyed."
 
 ## License
 
