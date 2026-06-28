@@ -34,7 +34,7 @@ resource "aws_launch_template" "app" {
     yum-config-manager --enable remi-php54
 
     # Instalar PHP y sus extensiones
-    yum install php php-cli php-common php-mbstring php-xml php-mysql php-fpm
+    yum install -y php php-cli php-common php-mbstring php-xml php-mysql php-fpm
 
     # Instalar Apache, Git y MySQL
     yum install -y httpd git mysql
@@ -46,10 +46,10 @@ resource "aws_launch_template" "app" {
     systemctl start httpd
 
     # Clonar la aplicación
-    git clone https://github.com/ORT-FI-7417-SolucionesCloud/php-ecommerce-obligatorio.git
+    git clone https://github.com/Pantufka/Chewbacca.git
 
     # Copiar la aplicación al DocumentRoot de Apache
-    cp -r php-ecommerce-obligatorio/* /var/www/html/
+    cp -r Chewbacca/php-ecommerce-obligatorio-main/* /var/www/html/
 
     # Crear el archivo de configuración de la aplicación
     cat > /var/www/html/config.php <<EOL
