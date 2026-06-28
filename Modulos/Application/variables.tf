@@ -38,3 +38,8 @@ variable "db_password" {
   type        = string
   sensitive   = true
 }
+
+variable "instance_profile_name" {
+  description = "Nombre del IAM Instance Profile"
+  type        = string
+}

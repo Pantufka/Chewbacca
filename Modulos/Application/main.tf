@@ -9,6 +9,9 @@ resource "aws_launch_template" "app" {
   vpc_security_group_ids = [
     var.app_sg_id
   ]
+  iam_instance_profile {
+    name = var.instance_profile_name
+  }
   tags = {
     Name = "Chewbacca-App"
   }
@@ -34,7 +37,7 @@ resource "aws_launch_template" "app" {
     yum install php php-cli php-common php-mbstring php-xml php-mysql php-fpm
 
     # Instalar Apache, Git y MySQL
-    yum install -y httpd git
+    yum install -y httpd git mysql
 
     # Habilitar Apache al iniciar la instancia
     systemctl enable httpd
